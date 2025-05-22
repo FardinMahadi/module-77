@@ -1,4 +1,5 @@
 import Link from "next/link";
+import style from "./post.module.css";
 
 export const getPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -19,7 +20,9 @@ export default async function Posts() {
               className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="p-6">
-                <h2 className="text-xl font-semibold mb-3 line-clamp-2">
+                <h2
+                  className={`text-xl font-semibold mb-3 line-clamp-2 ${style["post-title"]}`}
+                >
                   {post.title}
                 </h2>
                 <p className="mb-4 line-clamp-3">{post.body}</p>
