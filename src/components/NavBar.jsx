@@ -9,17 +9,14 @@ const NavBar = () => {
   if (pathname.includes("dashboard")) return <></>;
   else {
     return (
-      <div>
-        <nav className="flex justify-center">
-          <ul className="flex justify-between ">
+      <div className="w-full">
+        <nav className="flex items-between justify-center gap-5">
+          <ul className="flex justify-between w-1/3">
             <Link href="/">
               <li>Home</li>
             </Link>
-            <Link href="/services">
-              <li>Services</li>
-            </Link>
-            <Link href="/about">
-              <li>About</li>
+            <Link href="/posts">
+              <li>posts</li>
             </Link>
           </ul>
         </nav>
