@@ -2,9 +2,19 @@ import Link from "next/link";
 import style from "./post.module.css";
 
 export const getPosts = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const metadata = {
+  title: "All posts",
+  description: "Loading JSON placeholder posts using server component",
 };
 
 export default async function Posts() {

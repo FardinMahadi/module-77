@@ -1,4 +1,17 @@
+import Image from "next/image";
 import MealSearchInput from "./components/MealSearchInput";
+import { Monoton } from "next/font/google";
+
+const test = Monoton({
+  variable: "--font-test",
+  weight: ["400"],
+  subsets: ["latin"],
+});
+
+export const metadata = {
+  title: "Meals",
+  description: "Trying to go to next level of my life",
+};
 
 export default async function MealsPage({ searchParams }) {
   const query = await searchParams;
@@ -19,7 +32,7 @@ export default async function MealsPage({ searchParams }) {
   const meals = await fetchMeals();
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className={`container mx-auto px-4 py-8 ${test.variable}`}>
       <div>
         <MealSearchInput />
       </div>
@@ -31,10 +44,12 @@ export default async function MealsPage({ searchParams }) {
                 key={meal.idMeal}
                 className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={meal.strMealThumb}
                   alt={meal.strMeal}
                   className="w-full h-48 object-cover"
+                  width={641}
+                  height={641}
                 />
                 <div className="p-4">
                   <h2 className="font-bold text-xl mb-2">{meal.strMeal}</h2>

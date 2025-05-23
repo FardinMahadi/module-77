@@ -6,6 +6,19 @@ export const getSinglePost = async (post_id) => {
   return data;
 };
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+
+  const singlePost = await getSinglePost(id);
+
+  return {
+    title: singlePost.title,
+    description: singlePost.body,
+  };
+}
+
+export function Page({ params, searchParams }) {}
+
 export default async function SinglePost({ params }) {
   const p = await params;
   const singlePost = await getSinglePost(p.id);
