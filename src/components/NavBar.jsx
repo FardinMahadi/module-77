@@ -11,12 +11,18 @@ const NavBar = () => {
     return (
       <div className="w-full">
         <nav className="flex items-between justify-center gap-5">
-          <ul className="flex justify-between w-1/3">
+          <ul className="flex justify-between px-5 flex-wrap gap-5">
             <Link href="/">
               <li>Home</li>
             </Link>
             <Link href="/posts">
-              <li>posts</li>
+              <li>Posts</li>
+            </Link>
+            <Link href="/products">
+              <li>Products</li>
+            </Link>
+            <Link href="/products/add">
+              <li>Add Products</li>
             </Link>
             <Link href="/meals">
               <li>Meals</li>
