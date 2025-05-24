@@ -1,7 +1,8 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 function dbConnect(collectionName) {
-  const uri = process.env.MONGO_URI;
+  const uri = process.env.NEXT_PUBLIC_MONGO_URI;
+  console.log(uri);
 
   const client = new MongoClient(uri, {
     serverApi: {
@@ -11,7 +12,7 @@ function dbConnect(collectionName) {
     },
   });
 
-  return client.db(process.env.DB_NAME).collection(collectionName);
+  return client.db(process.env.NEXT_PUBLIC_DB_NAME).collection(collectionName);
 }
 
 export default dbConnect;
